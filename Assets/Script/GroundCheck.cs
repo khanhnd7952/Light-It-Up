@@ -21,10 +21,10 @@ public class GroundCheck : MonoBehaviour
 
         isGrounded = collider != null && (((1 << collider.gameObject.layer) & platformLayerMask) != 0);
 
-        if (collider.gameObject.name != "Full ")
-        {
-            human.transform.rotation = collider.transform.rotation;
-        }
+        //if (collider.gameObject.name != "Full ")
+        //{
+        //    human.transform.rotation = collider.transform.rotation;
+        //}
 
     }
 
@@ -33,11 +33,12 @@ public class GroundCheck : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if ( collision.gameObject.tag == "Edge")
+        if (collision.gameObject.tag == "Edge")
         {
             Circle.isTrigger = false;
             Debug.Log("Done!");
         }
+
         isGrounded = false;
     }
 
