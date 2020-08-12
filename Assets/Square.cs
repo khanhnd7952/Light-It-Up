@@ -28,7 +28,7 @@ public class Square : MonoBehaviour
             //collision.transform.GetComponent<Rigidbody2D>().mass = 0;
 
             // set Trigger cho circle
-            collision.collider.GetComponent<Collider2D>().isTrigger = true;
+            //collision.collider.GetComponent<Collider2D>().isTrigger = true;
 
         }
     }
