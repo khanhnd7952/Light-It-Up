@@ -30,13 +30,6 @@ public class Circle : MonoBehaviour
     {
         // unset Kinematic cho Circle nếu không sẽ không nhảy được !!
         rb.isKinematic = false;
-
-        // hoặc dùng gravityScale
-
-        //rb.gravityScale = 1;
-        //rb.mass = 0.1f;
-
-
         //gameOb.transform.SetParent(null);
 
         Debug.Log(isTouchObject);
@@ -53,8 +46,7 @@ public class Circle : MonoBehaviour
             rb.velocity = new Vector2(jumpDirection * 1.5f, 4f);
             doubleJump = false;
 
-        }
-        //coll.isTrigger = true;
+        }    
     }
 
 
