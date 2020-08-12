@@ -8,7 +8,7 @@ public class GroundCheck : MonoBehaviour
     public bool isGrounded;
     
     public GameObject human;
-    public Collider2D Circle;
+    public Collider2D Coll;
 
     private void Update()
     {
@@ -21,23 +21,48 @@ public class GroundCheck : MonoBehaviour
 
         isGrounded = collider != null && (((1 << collider.gameObject.layer) & platformLayerMask) != 0);
 
-        if (collider.gameObject.name != "Full ")
+        if (collider.gameObject.tag == "Edge")
         {
             human.transform.rotation = collider.transform.rotation;
         }
 
     }
 
-    
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Circle.doubleJump = true;
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+
+        //if (collision.gameObject.name == "Full")
+        //{
+        //    Circle.doubleJump = true;
+        //}
+    }
+
+
 
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if ( collision.gameObject.tag == "Edge")
+        //if (collision.gameObject.tag == "Edge")
+        //{
+        //    Circle.isTrigger = false;
+        //}
+        if ( collision.gameObject.name == "Full")
         {
-            Circle.isTrigger = false;
-            Debug.Log("Done!");
+            Coll.isTrigger = false;
+            Debug.Log("Untrigger");
         }
+
+        human.transform.rotation = new Quaternion(0,0,0,0);
+
         isGrounded = false;
     }
 

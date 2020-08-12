@@ -10,7 +10,8 @@ public class Circle : MonoBehaviour
     public static Collider2D coll;
     public static GameObject gameOb;
     public static bool doubleJump = false;
-    public static GameObject human;
+    public GameObject human;
+    public static int rotateDirection;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,8 +22,17 @@ public class Circle : MonoBehaviour
     
     void Update()
     {
+
+
+
         
-        isTouchObject = IsGrounded();
+        if ( !isTouchObject )
+        {
+            Debug.Log("Deo Cham Dat Roi");
+
+            human.transform.Rotate(new Vector3(0, 0, 1) * rotateDirection * 1000 * Time.deltaTime);
+        }
+        //isTouchObject = IsGrounded();
 
     }
 
@@ -30,14 +40,25 @@ public class Circle : MonoBehaviour
     {
         // unset Kinematic cho Circle nếu không sẽ không nhảy được !!
         rb.isKinematic = false;
+
+        // hoặc dùng gravityScale
+
+        //rb.gravityScale = 1;
+        //rb.mass = 0.1f;
+
+
         //gameOb.transform.SetParent(null);
 
-        Debug.Log(isTouchObject);
+        
         if ( isTouchObject)
         {
             
             rb.velocity = new Vector2(jumpDirection * 1.5f, 4f);
-            doubleJump = true;
+
+
+            isTouchObject = false;
+
+            //doubleJump = true;
             
         }
         else if (doubleJump)
@@ -46,7 +67,9 @@ public class Circle : MonoBehaviour
             rb.velocity = new Vector2(jumpDirection * 1.5f, 4f);
             doubleJump = false;
 
-        }    
+        }
+        Debug.Log("DoubleJump " + doubleJump);
+        //coll.isTrigger = true;
     }
 
 
@@ -55,13 +78,5 @@ public class Circle : MonoBehaviour
         return transform.Find("GroundCheck").GetComponent<GroundCheck>().isGrounded;
         
     }
-    //public void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    isTouchObject = true;
-    //}
-    //public void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    isTouchObject = false;
-    //}
 
 }
