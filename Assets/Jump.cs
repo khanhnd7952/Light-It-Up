@@ -14,7 +14,7 @@ public class Jump : MonoBehaviour
         //    Circle.DoJump(-1);
         //}
         Circle.DoJump(-1);
-        
+        Circle.rotateDirection = 1;
         
 
     }
@@ -27,6 +27,7 @@ public class Jump : MonoBehaviour
         //    Circle.DoJump(1);
         //}
         Circle.DoJump(1);
+        Circle.rotateDirection = -1;
 
     }
 }

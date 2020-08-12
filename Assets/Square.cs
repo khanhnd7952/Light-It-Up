@@ -8,7 +8,7 @@ public class Square : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
+        
         // Bật đèn Object bị đạp vào
         childFullSquare.GetComponent<SpriteRenderer>().enabled = true;
         if (collision.gameObject.tag == "Circle")
