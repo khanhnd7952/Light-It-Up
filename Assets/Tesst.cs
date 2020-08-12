@@ -8,6 +8,7 @@ public class Tesst : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("Exit");
+        Debug.Log("TestGithub");
     }
 
     
