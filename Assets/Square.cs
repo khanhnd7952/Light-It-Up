@@ -36,7 +36,7 @@ public class Square : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Object")
+        if (other.gameObject.tag == "Circle")
         {
             other.transform.SetParent(null);
         }
