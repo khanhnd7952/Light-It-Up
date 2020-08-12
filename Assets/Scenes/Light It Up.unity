@@ -160,8 +160,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.4140875, y: 0.43638498}
-  - {x: 0.41940922, y: 0.4951325}
+  - {x: -0.47238785, y: 0.43655485}
+  - {x: 0.47096857, y: 0.4789427}
 --- !u!212 &76455115
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -462,8 +462,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.46131897, y: 0.45191824}
-  - {x: 0.46048516, y: 0.52508056}
+  - {x: -0.48460817, y: 0.45044124}
+  - {x: 0.48445648, y: 0.4707709}
 --- !u!212 &150198177
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -878,8 +878,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.41625404, y: 0.50497925}
-  - {x: 0.40246823, y: 0.5521154}
+  - {x: -0.47261384, y: 0.49781948}
+  - {x: 0.46822158, y: 0.560458}
 --- !u!212 &362859232
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1185,7 +1185,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660119783}
-  m_LocalRotation: {x: 0, y: 0, z: 0.65914893, w: 0.7520125}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 1.176, y: -0.104, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
@@ -1196,7 +1196,7 @@ Transform:
   - {fileID: 1645471614}
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 82.47}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &667151252
 GameObject:
   m_ObjectHideFlags: 0
@@ -3920,8 +3920,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.4635422, y: 0.5377527}
-  - {x: 0.45986867, y: 0.67211777}
+  - {x: -0.48395172, y: 0.49794614}
+  - {x: 0.483322, y: 0.5067527}
 --- !u!212 &1363220422
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4631,10 +4631,14 @@ Transform:
   m_GameObject: {fileID: 1869812070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalPosition: {x: 1.6, y: 0.03, z: 0}
 =======
   m_LocalPosition: {x: 0.836, y: -0.096, z: 0}
 >>>>>>> 8f80db37ba741917e5b4b6e23e63f76f6dfbae54
+=======
+  m_LocalPosition: {x: 0.8241, y: -0.6739, z: 0}
+>>>>>>> parent of 8f80db3... commit9
   m_LocalScale: {x: 0.254, y: 0.254, z: 0.254}
   m_Children:
   - {fileID: 2005018807}
@@ -4720,10 +4724,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 1c03ce1c9a436034eb2c2d0c23aa17d9, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
