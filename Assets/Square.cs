@@ -22,13 +22,15 @@ public class Square : MonoBehaviour
             // set Kinematic cho circle ( Hết lỗi rồi ???)
             collision.collider.GetComponent<Rigidbody2D>().isKinematic = true;
 
+            
+
             // hoặc là set gravityScale = 0;
 
             //collision.transform.GetComponent<Rigidbody2D>().gravityScale = 0;
             //collision.transform.GetComponent<Rigidbody2D>().mass = 0;
 
             // set Trigger cho circle
-            //collision.collider.GetComponent<Collider2D>().isTrigger = true;
+            collision.collider.GetComponent<Collider2D>().isTrigger = true;
 
         }
     }
@@ -42,6 +44,10 @@ public class Square : MonoBehaviour
             //other.isTrigger = false;
         }
 
+
+
         //other.isTrigger = false;
     }
+
+
 }
