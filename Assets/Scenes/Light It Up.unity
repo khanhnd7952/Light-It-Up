@@ -3416,6 +3416,7 @@ Rigidbody2D:
   serializedVersion: 4
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3579,10 +3580,13 @@ Transform:
 SpriteRenderer:
 =======
 >>>>>>> parent of 19e6cab... Commit lan 2
+=======
+>>>>>>> parent of 19e6cab... Commit lan 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_GameObject: {fileID: 1463736107}
   m_Enabled: 1
@@ -3664,6 +3668,8 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> parent of 19e6cab... Commit lan 2
 =======
 >>>>>>> parent of 19e6cab... Commit lan 2
   m_GameObject: {fileID: 1444381328}
