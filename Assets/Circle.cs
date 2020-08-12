@@ -75,6 +75,7 @@ public class Circle : MonoBehaviour
 
     public bool IsGrounded()
     {
+    // test github
         return transform.Find("GroundCheck").GetComponent<GroundCheck>().isGrounded;
         
     }
