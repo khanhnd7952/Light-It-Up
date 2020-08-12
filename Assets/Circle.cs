@@ -53,7 +53,7 @@ public class Circle : MonoBehaviour
         if ( isTouchObject)
         {
             
-            rb.velocity = new Vector2(jumpDirection * 1.5f, 4f);
+            rb.velocity = new Vector2(jumpDirection * 1.5f, 3f);
 
 
             isTouchObject = false;
@@ -64,7 +64,7 @@ public class Circle : MonoBehaviour
         else if (doubleJump)
         {
             
-            rb.velocity = new Vector2(jumpDirection * 1.5f, 4f);
+            rb.velocity = new Vector2(jumpDirection * 1.5f, 3f);
             doubleJump = false;
 
         }
