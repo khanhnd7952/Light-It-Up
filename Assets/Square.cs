@@ -18,17 +18,10 @@ public class Square : MonoBehaviour
 
             // setparent cho circle
             collision.transform.SetParent(gameObject.transform);
-
-            // set Kinematic cho circle ( Hết lỗi rồi ???)
+            // set Kinematic cho circle
             collision.collider.GetComponent<Rigidbody2D>().isKinematic = true;
-
-            // hoặc là set gravityScale = 0;
-
-            //collision.transform.GetComponent<Rigidbody2D>().gravityScale = 0;
-            //collision.transform.GetComponent<Rigidbody2D>().mass = 0;
-
             // set Trigger cho circle
-            collision.collider.GetComponent<Collider2D>().isTrigger = true;
+           // collision.collider.GetComponent<Collider2D>().isTrigger = true;
 
         }
     }
