@@ -39,8 +39,9 @@ public class Square : MonoBehaviour
         if (other.gameObject.tag == "Circle")
         {
             other.transform.SetParent(null);
+            //other.isTrigger = false;
         }
 
-        other.isTrigger = false;
+        //other.isTrigger = false;
     }
 }
