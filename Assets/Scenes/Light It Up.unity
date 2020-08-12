@@ -4632,10 +4632,14 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalPosition: {x: 1.6, y: 0.03, z: 0}
 =======
   m_LocalPosition: {x: 0.836, y: -0.096, z: 0}
 >>>>>>> 8f80db37ba741917e5b4b6e23e63f76f6dfbae54
+=======
+  m_LocalPosition: {x: 0.8241, y: -0.6739, z: 0}
+>>>>>>> parent of 8f80db3... commit9
 =======
   m_LocalPosition: {x: 0.8241, y: -0.6739, z: 0}
 >>>>>>> parent of 8f80db3... commit9
