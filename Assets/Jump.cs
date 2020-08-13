@@ -8,25 +8,19 @@ public class Jump : MonoBehaviour
 
     public void ClickLeft()
     {
-        
-        //if ( Circle.isTouchObject )
-        //{
-        //    Circle.DoJump(-1);
-        //}
+
         Circle.DoJump(-1);
-        Circle.rotateDirection = 1;
         
+        Circle.rotateDirection = 1;
+
 
     }
 
     public void ClickRight()
     {
-        
-        //if (Circle.isTouchObject)
-        //{
-        //    Circle.DoJump(1);
-        //}
+
         Circle.DoJump(1);
+
         Circle.rotateDirection = -1;
 
     }

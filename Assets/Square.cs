@@ -11,11 +11,9 @@ public class Square : MonoBehaviour
 
         // Bật đèn Object bị đạp vào
         childFullSquare.GetComponent<SpriteRenderer>().enabled = true;
+
         if (collision.gameObject.tag == "Circle")
         {
-            // bật đèn Circle
-            collision.collider.GetComponent<SpriteRenderer>().color = childFullSquare.GetComponent<SpriteRenderer>().color;
-
             // setparent cho circle
             collision.transform.SetParent(gameObject.transform);
 
