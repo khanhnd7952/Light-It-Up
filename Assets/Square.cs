@@ -8,7 +8,7 @@ public class Square : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        
+
         // Bật đèn Object bị đạp vào
         childFullSquare.GetComponent<SpriteRenderer>().enabled = true;
         if (collision.gameObject.tag == "Circle")
@@ -19,15 +19,10 @@ public class Square : MonoBehaviour
             // setparent cho circle
             collision.transform.SetParent(gameObject.transform);
 
-            // set Kinematic cho circle ( Hết lỗi rồi ???)
+
+            // set Kinematic cho circle
             collision.collider.GetComponent<Rigidbody2D>().isKinematic = true;
-
-            
-
-            // hoặc là set gravityScale = 0;
-
-            //collision.transform.GetComponent<Rigidbody2D>().gravityScale = 0;
-            //collision.transform.GetComponent<Rigidbody2D>().mass = 0;
+            //StartCoroutine(ExampleCoroutine(collision));
 
             // set Trigger cho circle
             collision.collider.GetComponent<Collider2D>().isTrigger = true;
@@ -49,5 +44,18 @@ public class Square : MonoBehaviour
         //other.isTrigger = false;
     }
 
+
+    IEnumerator ExampleCoroutine(Collision2D collision)
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(0.01f);
+
+        
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+    }
 
 }

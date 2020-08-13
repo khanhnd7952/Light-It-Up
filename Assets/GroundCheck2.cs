@@ -8,6 +8,7 @@ public class GroundCheck2 : MonoBehaviour
     public bool isGrounded;
 
     public GameObject human;
+    public GameObject bamTuong;
     public Collider2D Coll;
 
     private void Update()
@@ -42,7 +43,7 @@ public class GroundCheck2 : MonoBehaviour
 
         if (collision.gameObject.tag == "Edge")
         {
-            human.transform.rotation = collision.transform.rotation;
+            bamTuong.transform.rotation = collision.transform.rotation;
         }
 
     }
@@ -61,7 +62,7 @@ public class GroundCheck2 : MonoBehaviour
             
         }
 
-        //human.transform.rotation = new Quaternion(0, 0, 0, 0);
+        human.transform.rotation = new Quaternion(0, 0, 0, 0);
 
         //Circle.isTouchObject = false;
         

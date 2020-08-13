@@ -10,44 +10,47 @@ public class Circle : MonoBehaviour
     public static Collider2D coll;
     public static GameObject gameOb;
     public static bool doubleJump = false;
-    public GameObject human;
+    public GameObject jump;
+    public GameObject bamTuong;
     public static int rotateDirection;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<Collider2D>();
-        
+        jump.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        bamTuong.gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     
     void Update()
     {
-
-
-
-        
-        if ( !isTouchObject )
+        if ( isTouchObject)
         {
-            Debug.Log("Deo Cham Dat Roi");
-
-            human.transform.Rotate(new Vector3(0, 0, 1) * rotateDirection * 1000 * Time.deltaTime);
+            // chuyển đổi trạng thái
+            jump.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            bamTuong.gameObject.GetComponent<SpriteRenderer>().enabled = true; 
         }
-        //isTouchObject = IsGrounded();
+        else
+        {
+            // chuyển đổi trạng thái
+            jump.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            bamTuong.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+
+            // rotate khi doublejump
+            if (!doubleJump)
+            {
+                jump.transform.Rotate(new Vector3(0, 0, 1) * rotateDirection * 1000 * Time.deltaTime);
+            }
+        }
 
     }
 
     public static void DoJump(int jumpDirection)
     {
-        // unset Kinematic cho Circle nếu không sẽ không nhảy được !!
+        // unset Kinematic cho Circle
         rb.isKinematic = false;
 
-        // hoặc dùng gravityScale
-
-        //rb.gravityScale = 1;
-        //rb.mass = 0.1f;
-
-
-        //gameOb.transform.SetParent(null);
+        
 
         
         if ( isTouchObject)
@@ -55,11 +58,8 @@ public class Circle : MonoBehaviour
             
             rb.velocity = new Vector2(jumpDirection * 1.5f, 4f);
 
-
             isTouchObject = false;
 
-            //doubleJump = true;
-            
         }
         else if (doubleJump)
         {
@@ -67,8 +67,10 @@ public class Circle : MonoBehaviour
             rb.velocity = new Vector2(jumpDirection * 1.5f, 4f);
             doubleJump = false;
 
+            
+
         }
-        Debug.Log("DoubleJump " + doubleJump);
+        
         //coll.isTrigger = true;
     }
 
