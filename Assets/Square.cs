@@ -17,10 +17,8 @@ public class Square : MonoBehaviour
             // setparent cho circle
             collision.transform.SetParent(gameObject.transform);
 
-
             // set Kinematic cho circle
             collision.collider.GetComponent<Rigidbody2D>().isKinematic = true;
-            //StartCoroutine(ExampleCoroutine(collision));
 
             // set Trigger cho circle
             collision.collider.GetComponent<Collider2D>().isTrigger = true;
@@ -33,27 +31,13 @@ public class Square : MonoBehaviour
     {
         if (other.gameObject.tag == "Circle")
         {
+            // unset Parent circle
             other.transform.SetParent(null);
-            //other.isTrigger = false;
         }
 
-
-
-        //other.isTrigger = false;
     }
 
 
-    IEnumerator ExampleCoroutine(Collision2D collision)
-    {
-        //Print the time of when the function is first called.
-        Debug.Log("Started Coroutine at timestamp : " + Time.time);
-
-        //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(0.01f);
-
-        
-        //After we have waited 5 seconds print the time again.
-        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
-    }
+    
 
 }

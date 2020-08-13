@@ -2,26 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jump : MonoBehaviour
+public class Click : MonoBehaviour
 {
 
 
     public void ClickLeft()
     {
 
+        // hướng nhảy và xoay
         Circle.DoJump(-1);
 
-        Circle.rotateDirection = 1;
+        Circle.RotateDirection = 1;
 
 
     }
 
     public void ClickRight()
     {
-
+        // hướng nhảy và xoay
         Circle.DoJump(1);
 
-        Circle.rotateDirection = -1;
+        Circle.RotateDirection = -1;
 
     }
 }

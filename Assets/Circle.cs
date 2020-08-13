@@ -4,55 +4,72 @@ using UnityEngine;
 
 public class Circle : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject jump;
+    [SerializeField] private GameObject climbLeft;
+    [SerializeField] private GameObject climbRight;
+    private static Rigidbody2D rb;
+    private static Collider2D coll;
 
-    public static Rigidbody2D rb;
-    public static GameObject gameOb;
-    public static bool doubleJump;
-    public GameObject jump1;
+    
 
-    public static int rotateDirection;
-    private float rotateSpeed;
+
+    [SerializeField] private float rotateSpeed;
+    private static bool doubleJump;
+    protected static int jumpDirection;
+    private static float jumpSpeedX;
+    private static float jumpSpeedY;
+
+    public static Rigidbody2D Rb { get => rb; set => rb = value; }
+    public static Collider2D Coll { get => coll; set => coll = value; }
+    public GameObject Player { get => player; set => player = value; }
+    public GameObject Jump { get => jump; set => jump = value; }
+    public GameObject ClimbLeft { get => climbLeft; set => climbLeft = value; }
+    public GameObject ClimbRight { get => climbRight; set => climbRight = value; }
+    public static bool DoubleJump { get => doubleJump; set => doubleJump = value; }
+    public static int RotateDirection { get => jumpDirection; set => jumpDirection = value; }
+    public  float RotateSpeed { get => rotateSpeed; set => rotateSpeed = value; }
+    public static float JumpSpeedX { get => jumpSpeedX; set => jumpSpeedX = value; }
+    public static float JumpSpeedY { get => jumpSpeedY; set => jumpSpeedY = value; }
+    
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        doubleJump = false;
-        rotateSpeed = 1000f;
+        Coll = GetComponent<Collider2D>();
+        Rb = GetComponent<Rigidbody2D>();
+        DoubleJump = false;
+        RotateSpeed = 1000f;
+        JumpSpeedX = 1.5f;
+        JumpSpeedY = 4.0f;
     }
 
 
     void Update()
     {
         // rotate khi doublejump
-        if ( !GroundCheck.isGrounded && !doubleJump  )
+        if ( !GroundCheck.isGrounded && !DoubleJump  )
         {
-            jump1.transform.Rotate(new Vector3(0, 0, 1) * rotateDirection * rotateSpeed * Time.deltaTime);
-            jump1.GetComponent<SpriteRenderer>().color = Color.white;
-
+            Jump.transform.Rotate(new Vector3(0, 0, 1) * RotateDirection * RotateSpeed * Time.deltaTime);
+            Jump.GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
 
     public static void DoJump(int jumpDirection)
     {
         // unset Kinematic cho Circle
-        rb.isKinematic = false;
+        Rb.isKinematic = false;
 
         if (GroundCheck.isGrounded)
         {
-            rb.velocity = new Vector2(jumpDirection * 1.5f, 4f);
+            Rb.velocity = new Vector2(jumpDirection * JumpSpeedX, JumpSpeedY);
         }
-        else if (doubleJump)
+        else if (DoubleJump)
         {
-            rb.velocity = new Vector2(jumpDirection * 1.5f, 4f);
-            doubleJump = false;
+            Rb.velocity = new Vector2(jumpDirection * JumpSpeedX, JumpSpeedY);
+            DoubleJump = false;
         }
 
     }
-
-    public void test()
-    {
-        Debug.Log("test");
-    }    
 
 }
 

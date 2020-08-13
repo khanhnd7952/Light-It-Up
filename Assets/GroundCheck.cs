@@ -2,43 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundCheck : MonoBehaviour
+public class GroundCheck : Circle
 {
-    [SerializeField] private LayerMask platformLayerMask;
     public static bool isGrounded;
-    public GameObject circle;
-    public GameObject jump;
-    public GameObject climb;
-    public Collider2D Coll;
-
-    
 
     private void Start()
     {
         JumpState();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         // chuyển đổi trạng thái sang leo tường
-        ClimbState();
+        ClimbState(collider);
 
-        if (collision.gameObject.name == "Full")
+        if (collider.gameObject.name == "Solid")
         {
-            Circle.doubleJump = true;
+            // Chạm đất và cho phép doublejump
+            DoubleJump = true;
             isGrounded = true;
-            jump.GetComponent<SpriteRenderer>().color = collision.GetComponent<SpriteRenderer>().color;
-            climb.GetComponent<SpriteRenderer>().color = collision.GetComponent<SpriteRenderer>().color;
-            
-        }
 
-        if (collision.gameObject.tag == "Edge")
-        {
-            climb.transform.rotation = collision.transform.rotation;
+            // Biến Hình
+            Jump.GetComponent<SpriteRenderer>().color = collider.GetComponent<SpriteRenderer>().color;
+            ClimbLeft.GetComponent<SpriteRenderer>().color = collider.GetComponent<SpriteRenderer>().color;
+            ClimbRight.GetComponent<SpriteRenderer>().color = collider.GetComponent<SpriteRenderer>().color;
+
         }
 
     }
-
 
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -46,29 +37,43 @@ public class GroundCheck : MonoBehaviour
         // chuyển đổi trạng thái sang nhảy
         JumpState();
 
-        if (collision.gameObject.name == "Full")
+        if (collision.gameObject.name == "Solid")
         {
-            Coll.isTrigger = false;
-            
+            Coll.isTrigger = false;  
         }
 
-        jump.transform.rotation = new Quaternion(0, 0, 0, 0);
         isGrounded = false;
         
         
     }
 
     // trạng thái leo tường
-    private void ClimbState()
+    private void ClimbState(Collider2D collider)
     {
-        jump.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        climb.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        if (collider.gameObject.tag == "Edge")
+        {
+            ClimbLeft.transform.rotation = collider.transform.rotation;
+            ClimbRight.transform.rotation = collider.transform.rotation;
+        }
+        Jump.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        if (jumpDirection == 1)
+        {
+            ClimbLeft.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else
+        {
+            ClimbRight.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        }
+
+        
     }
     // trạng thái nhảy
     private void JumpState()
     {
-        jump.gameObject.GetComponent<SpriteRenderer>().enabled = true;
-        climb.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        Jump.transform.rotation = new Quaternion(0, 0, 0, 0);
+        Jump.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        ClimbLeft.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        ClimbRight.gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 
 }
