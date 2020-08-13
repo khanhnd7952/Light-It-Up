@@ -7,33 +7,21 @@ public class GroundCheck2 : MonoBehaviour
     [SerializeField] private LayerMask platformLayerMask;
     public bool isGrounded;
 
-    public GameObject human;
-    public GameObject bamTuong;
+    public GameObject jump;
+    public GameObject climb;
     public Collider2D Coll;
 
     private void Update()
     {
-        gameObject.GetComponent<Collider2D>().isTrigger = true;
+        //gameObject.GetComponent<Collider2D>().isTrigger = true;
     }
-
-
-    //private void OnTriggerStay2D(Collider2D collider)
-    //{
-
-    //    isGrounded = collider != null && (((1 << collider.gameObject.layer) & platformLayerMask) != 0);
-
-    //    if (collider.gameObject.tag == "Edge")
-    //    {
-    //        human.transform.rotation = collider.transform.rotation;
-    //    }
-
-    //}
-
-
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // chuyển đổi trạng thái sang leo tường
+        Climb();
+
         if (collision.gameObject.name == "Full")
         {
             Circle.doubleJump = true;
@@ -43,7 +31,7 @@ public class GroundCheck2 : MonoBehaviour
 
         if (collision.gameObject.tag == "Edge")
         {
-            bamTuong.transform.rotation = collision.transform.rotation;
+            climb.transform.rotation = collision.transform.rotation;
         }
 
     }
@@ -52,21 +40,31 @@ public class GroundCheck2 : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //if (collision.gameObject.tag == "Edge")
-        //{
-        //    Circle.isTrigger = false;
-        //}
+        // chuyển đổi trạng thái sang nhảy
+        Jump();
+
         if (collision.gameObject.name == "Full")
         {
             Coll.isTrigger = false;
             
         }
 
-        human.transform.rotation = new Quaternion(0, 0, 0, 0);
+        jump.transform.rotation = new Quaternion(0, 0, 0, 0);
 
-        //Circle.isTouchObject = false;
+        Circle.isTouchObject = false;
         
     }
 
+
+    private void Climb()
+    {
+        jump.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        climb.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+    }
+    private void Jump()
+    {
+        jump.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        climb.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+    }
 
 }

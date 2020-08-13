@@ -9,14 +9,20 @@ public class Circle : MonoBehaviour
     public static Rigidbody2D rb;
     public static Collider2D coll;
     public static GameObject gameOb;
+    public Transform jumpTransform;
     public static bool doubleJump = false;
     public GameObject jump;
     public GameObject bamTuong;
     public static int rotateDirection;
     void Start()
     {
+
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<Collider2D>();
+        
+        
+
+
         jump.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         bamTuong.gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
@@ -26,16 +32,11 @@ public class Circle : MonoBehaviour
     {
         if ( isTouchObject)
         {
-            // chuyển đổi trạng thái
-            jump.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            bamTuong.gameObject.GetComponent<SpriteRenderer>().enabled = true; 
+
         }
         else
         {
-            // chuyển đổi trạng thái
-            jump.gameObject.GetComponent<SpriteRenderer>().enabled = true;
-            bamTuong.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-
+            
             // rotate khi doublejump
             if (!doubleJump)
             {
@@ -50,35 +51,16 @@ public class Circle : MonoBehaviour
         // unset Kinematic cho Circle
         rb.isKinematic = false;
 
-        
-
-        
         if ( isTouchObject)
         {
-            
             rb.velocity = new Vector2(jumpDirection * 1.5f, 4f);
-
-            isTouchObject = false;
-
         }
         else if (doubleJump)
         {
             
             rb.velocity = new Vector2(jumpDirection * 1.5f, 4f);
             doubleJump = false;
-
-            
-
         }
-        
-        //coll.isTrigger = true;
-    }
-
-
-    public bool IsGrounded()
-    {
-    // test github
-        return transform.Find("GroundCheck").GetComponent<GroundCheck>().isGrounded;
         
     }
 
