@@ -10,7 +10,7 @@ public class Jump : MonoBehaviour
     {
 
         Circle.DoJump(-1);
-        
+
         Circle.rotateDirection = 1;
 
 

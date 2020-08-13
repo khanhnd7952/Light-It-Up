@@ -11,7 +11,7 @@ public class GroundCheck : MonoBehaviour
     public GameObject climb;
     public Collider2D Coll;
 
-    public Circle circle1;
+    
 
     private void Start()
     {
@@ -22,9 +22,6 @@ public class GroundCheck : MonoBehaviour
     {
         // chuyển đổi trạng thái sang leo tường
         ClimbState();
-
-
-
 
         if (collision.gameObject.name == "Full")
         {

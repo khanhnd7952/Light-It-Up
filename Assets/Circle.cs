@@ -8,7 +8,7 @@ public class Circle : MonoBehaviour
     public static Rigidbody2D rb;
     public static GameObject gameOb;
     public static bool doubleJump;
-    public GameObject jump;
+    public GameObject jump1;
 
     public static int rotateDirection;
     private float rotateSpeed;
@@ -26,8 +26,8 @@ public class Circle : MonoBehaviour
         // rotate khi doublejump
         if ( !GroundCheck.isGrounded && !doubleJump  )
         {
-            jump.transform.Rotate(new Vector3(0, 0, 1) * rotateDirection * rotateSpeed * Time.deltaTime);
-            jump.GetComponent<SpriteRenderer>().color = Color.white;
+            jump1.transform.Rotate(new Vector3(0, 0, 1) * rotateDirection * rotateSpeed * Time.deltaTime);
+            jump1.GetComponent<SpriteRenderer>().color = Color.white;
 
         }
     }
