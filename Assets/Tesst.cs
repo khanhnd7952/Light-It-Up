@@ -10,6 +10,7 @@ public class Tesst : MonoBehaviour
         Debug.Log("Exit");
         Debug.Log("TestGithub");
         //Teststststs
+        //testtt2t22
     }
 
     
